@@ -4,9 +4,58 @@ import com.fasterxml.jackson.databind.*;
 import java.io.IOException;
 import java.io.StringWriter;
 
+/*
+{"competitiveStats":{
+    "awards":{
+        "cards":0,
+        "medals":0,
+        "medalsBronze":0,
+        "medalsSilver":0,
+        "medalsGold":0},
+    "games":{
+        "played":126,
+        "won":62},
+    "season":null},
+"endorsement":3,
+"endorsementIcon":"https://static.playoverwatch.com/img/pages/career/icons/endorsement/3-8ccb5f0aef.svg#icon",
+"gamesLost":149,
+"gamesPlayed":287,
+"gamesWon":138,
+"icon":"https://d15f34w2p8l1cc.cloudfront.net/overwatch/18324accdcf709d7ab5d9ba17f690466254e172f1aa82b50fcbc92e95eb13089.png",
+"name":"ThatGuy",
+"private":false,
+"quickPlayStats":{
+    "awards":{
+        "cards":0,
+        "medals":0,
+        "medalsBronze":0,
+        "medalsSilver":0,
+        "medalsGold":0},
+    "games":{
+        "played":161,
+        "won":76}
+    },
+"rating":0,
+"ratingIcon":"",
+"ratings":[
+    {
+        "group":"Silver",
+        "tier":4,
+        "role":"tank",
+        "roleIcon":"https://static.playoverwatch.com/img/pages/career/icons/role/tank-f64702b684.svg#icon",
+        "rankIcon":"https://static.playoverwatch.com/img/pages/career/icons/rank/SilverTier-4-a9cdcd1a39.png"},
+    {
+        "group":"Gold",
+        "tier":1,
+        "role":"support",
+        "roleIcon":"https://static.playoverwatch.com/img/pages/career/icons/role/support-0258e13d85.svg#icon",
+        "rankIcon":"https://static.playoverwatch.com/img/pages/career/icons/rank/GoldTier-1-44f03fb9ca.png"
+        }
+    ]
+}
+*/
 public class Stats {
-//TODO implement the stuff from the api
-
+//TODO change variables to new JSON names
 
 
 
@@ -26,96 +75,8 @@ public class Stats {
 }
 
 class GameStats{
-    private double eliminationsAvg;
-    private int damageDoneAvg;
-    private double deathsAvg;
-    private double finalBlowsAvg;
-    private int healingDoneAvg;
-    private double objectiveKillsAvg;
-    private String objectiveTimeAvg;
-    private double soloKillsAvg;
-    private Games games;
-    private Awards awards;
 
-    public Awards getAwards() {
-        return awards;
-    }
 
-    public void setAwards(Awards awards) {
-        this.awards = awards;
-    }
-
-    public Games getGames() {
-        return games;
-    }
-
-    public void setGames(Games games) {
-        this.games = games;
-    }
-
-    public double getSoloKillsAvg() {
-        return soloKillsAvg;
-    }
-
-    public void setSoloKillsAvg(double soloKillsAvg) {
-        this.soloKillsAvg = soloKillsAvg;
-    }
-
-    public String getObjectiveTimeAvg() {
-        return objectiveTimeAvg;
-    }
-
-    public void setObjectiveTimeAvg(String objectiveTimeAvg) {
-        this.objectiveTimeAvg = objectiveTimeAvg;
-    }
-
-    public double getObjectiveKillsAvg() {
-        return objectiveKillsAvg;
-    }
-
-    public void setObjectiveKillsAvg(double objectiveKillsAvg) {
-        this.objectiveKillsAvg = objectiveKillsAvg;
-    }
-
-    public double getFinalBlowsAvg() {
-        return finalBlowsAvg;
-    }
-
-    public void setFinalBlowsAvg(double finalBlowsAvg) {
-        this.finalBlowsAvg = finalBlowsAvg;
-    }
-
-    public double getDeathsAvg() {
-        return deathsAvg;
-    }
-
-    public void setDeathsAvg(double deathsAvg) {
-        this.deathsAvg = deathsAvg;
-    }
-
-    public int getDamageDoneAvg() {
-        return damageDoneAvg;
-    }
-
-    public void setDamageDoneAvg(int damageDoneAvg) {
-        this.damageDoneAvg = damageDoneAvg;
-    }
-
-    public double getEliminationsAvg() {
-        return eliminationsAvg;
-    }
-
-    public void setEliminationsAvg(double eliminationsAvg) {
-        this.eliminationsAvg = eliminationsAvg;
-    }
-
-    public void setHealingDoneAvg(int healingDoneAvg) {
-        this.healingDoneAvg = healingDoneAvg;
-    }
-
-    public int getHealingDoneAvg() {
-        return healingDoneAvg;
-    }
 
     public String toString(){
         ObjectMapper mapper = new ObjectMapper();
@@ -135,24 +96,6 @@ class GameStats{
 }
 
 class Games{
-    private int played;
-    private int won;
-
-    public int getPlayed() {
-        return played;
-    }
-
-    public void setPlayed(int played) {
-        this.played = played;
-    }
-
-    public int getWon() {
-        return won;
-    }
-
-    public void setWon(int won) {
-        this.won = won;
-    }
 
     public String toString(){
         ObjectMapper mapper = new ObjectMapper();
@@ -170,51 +113,7 @@ class Games{
 }
 
 class Awards{
-    private int cards;
-    private int medals;
-    private int medalsBronze;
-    private int medalsSilver;
-    private int medalsGold;
 
-    public int getCards() {
-        return cards;
-    }
-
-    public void setCards(int cards) {
-        this.cards = cards;
-    }
-
-    public int getMedals() {
-        return medals;
-    }
-
-    public void setMedals(int medals) {
-        this.medals = medals;
-    }
-
-    public int getMedalsBronze() {
-        return medalsBronze;
-    }
-
-    public void setMedalsBronze(int medalsBronze) {
-        this.medalsBronze = medalsBronze;
-    }
-
-    public int getMedalsSilver() {
-        return medalsSilver;
-    }
-
-    public void setMedalsSilver(int medalsSilver) {
-        this.medalsSilver = medalsSilver;
-    }
-
-    public int getMedalsGold() {
-        return medalsGold;
-    }
-
-    public void setMedalsGold(int medalsGold) {
-        this.medalsGold = medalsGold;
-    }
 
     public String toString(){
         ObjectMapper mapper = new ObjectMapper();
