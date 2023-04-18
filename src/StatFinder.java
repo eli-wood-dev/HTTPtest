@@ -18,13 +18,20 @@ public class StatFinder {
         HttpRequest request = HttpRequest.newBuilder(URI.create("https://ow-api.com/v1/stats/pc/us/"+ playerName + "/profile")).build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.statusCode()); //TODO remove prints
-        System.out.println(response.body());
 
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.body(), Stats.class);
+        //clean the word private out of the json
+        String jsonBody = response.body();
+
+        if(jsonBody.contains("private")){
+            String[]temp = jsonBody.split("private");
+
+            jsonBody = temp[0] + "privateAccount" + temp[1];
+        }
+
+        return mapper.readValue(jsonBody, Stats.class);
     }
 
 
