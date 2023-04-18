@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 public class StatFinder {
 
     /**
-     * @param playerName player name and number separated via -
+     * @param playerName player name and number separated via a -
      * @return the stats of the chosen player, if found
      * @throws Exception an Exception
      */
