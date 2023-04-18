@@ -24,7 +24,7 @@ public class StatFinder {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return new Stats();//TODO add an actual Stats
+        return mapper.readValue(response.body(), Stats.class);
     }
 
 

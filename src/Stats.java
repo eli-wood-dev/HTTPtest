@@ -1,8 +1,28 @@
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
+
+import java.io.IOException;
+import java.io.StringWriter;
+
 public class Stats {
 //TODO implement the stuff from the api
 
 
 
+
+    public String toString(){
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
+        StringWriter answer = new StringWriter();
+        try {
+            mapper.writeValue(answer, this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return answer.toString();
+    }
 }
 
 class GameStats{
@@ -98,7 +118,17 @@ class GameStats{
     }
 
     public String toString(){
-        return "{eliminationsAvg: " + eliminationsAvg + ",damageDoneAvg: " + damageDoneAvg + ",deathsAvg: " + deathsAvg + ",finalBlowsAvg: " + deathsAvg + ",finalBlowsAvg: " + finalBlowsAvg + ",healingDoneAvg: " + healingDoneAvg + ",objectiveKillsAvg: " + objectiveKillsAvg + ",objectiveTimeAvg: " + objectiveTimeAvg + ",soloKillsAvg: " + soloKillsAvg + ",games: " + games + ",awards: " + awards + "}";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
+        StringWriter answer = new StringWriter();
+        try {
+            mapper.writeValue(answer, this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return answer.toString();
     }
 
 
@@ -125,7 +155,17 @@ class Games{
     }
 
     public String toString(){
-        return "{played: " + played + ",won: " + won + "}";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
+        StringWriter answer = new StringWriter();
+        try {
+            mapper.writeValue(answer, this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return answer.toString();
     }
 }
 
@@ -177,6 +217,16 @@ class Awards{
     }
 
     public String toString(){
-        return "{cards: " + cards + ",medals: " + medals + ",medalsBronze: " + medalsBronze + ",medalsSilver: " + medalsSilver + ",medalsGold: " + medalsGold + "}";
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
+        StringWriter answer = new StringWriter();
+        try {
+            mapper.writeValue(answer, this);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return answer.toString();
     }
 }
