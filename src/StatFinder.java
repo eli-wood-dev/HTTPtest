@@ -13,8 +13,7 @@ public class StatFinder {
      * @return the stats of the chosen player, if found
      * @throws Exception an Exception
      */
-    public static Stats getPlayerInfo(String playerName) throws Exception{
-        boolean writing = true;
+    public static Stats getPlayerInfo(String playerName, boolean writing) throws Exception{
 
 
         HttpClient client = HttpClient.newHttpClient();
@@ -46,6 +45,10 @@ public class StatFinder {
         }
 
         return mapper.readValue(jsonBody, Stats.class);
+    }
+
+    public static Stats getPlayerInfo(String playerName) throws Exception{
+        return getPlayerInfo(playerName, false);
     }
 
 
