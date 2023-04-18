@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.http.*;
 import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
 
 
 public class Main {
@@ -13,5 +14,10 @@ public class Main {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.statusCode());
         System.out.println(response.body());
+
+
+        ObjectMapper mapper = new ObjectMapper();
+
+
     }
 }
